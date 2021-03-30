@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+			"-//mybatis.org//DTD Mapper 3.0//EN" 
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="BoardDAO">
+	
+	<select id="selectList" parameterType="hashmap" resultType="board">
+		<![CDATA[	
+		
+		select * from 
+			(select rownum as st, A.* from
+				(select * from board order by idx desc)
+			A where rownum <= #{last})
+		where st >= #{first}
+		
+		]]>
+	</select>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="board">
+		select * from board where idx=#{idx}
+	</select>
+	
+	<insert id="insertBoard" parameterType="board">
+		insert into board (title,writer,context,ipaddr, uploadfile)
+		values (#{title}, #{writer}, #{context}, #{ipaddr},#{uploadfile})
+	</insert>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete board where idx=#{idx}
+	</delete>
+	
+	<update id="updateboard" parameterType="board">
+	update board 
+		set 
+			title=#{title}, 
+			writer=#{writer}, 
+			context=#{context},
+			uploadfile=#{uploadfile}
+		where 
+			idx=#{idx}
+	</update>
+	
+	<update id="updateViewCount" parameterType="int">
+		update board set viewCount = viewCount + 1 where idx=#{idx}
+	</update>
+	
+
+	
+</mapper>

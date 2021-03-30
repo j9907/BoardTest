@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+			"-//mybatis.org//DTD Mapper 3.0//EN" 
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="ReplyDAO">
+	
+	<select id="replylist" parameterType="int" resultType="reply">
+		select * from reply
+		where
+			boardIdx=#{idx}
+	</select>
+	
+	<insert id="insertreply" parameterType="reply">
+			insert into reply 
+			(boardidx, writer, context)
+		values 
+			(#{boardidx}, #{writer}, #{context})
+	</insert>
+	
+	<update id="deletereply" parameterType="hashmap">
+		update reply set deleted=#{deleted} where idx=#{idx}
+			</update>
+			
+			
+	<select id="selectboardidx" parameterType="int" resultType="string">
+		select boardidx from reply where idx=#{idx}
+	</select>
+	
+</mapper>

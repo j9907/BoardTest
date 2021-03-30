@@ -1,0 +1,116 @@
+@charset "utf-8";
+#boardList{
+	border-collapse: collapse; 
+/* 	margin: 30px auto 30px auto; */
+	width: 1200px;
+	min-width: 800px;
+}
+#boardList tr {
+	border-bottom: 1px solid #dadada;
+	height: 45px;
+}
+#boardList tr:hover {
+	cursor: default;
+}
+#boardList thead > tr {
+	background-color: rgb(90, 98, 85);	
+	color: white;
+	font-weight: bold;
+}
+#boardList tbody td {
+	text-align: center;
+}
+#boardList tbody > tr:hover {
+	background-color: #dadada;
+}
+#boardList tbody .idx {
+	width: 5%;
+}
+#boardList tbody .title {
+	width: 60%;
+	text-align: left;
+	padding-left: 20px;
+	font-weight: bold;
+}
+#boardList tbody .title > a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+	display: block;
+}
+#boardList tbody .title > a:hover {
+	cursor: pointer;
+}
+#boardList tbody .writer {
+	width: 10%;
+}
+#boardList tbody .viewCount {
+	width: 5%;
+}
+#boardList tbody .creationDate {
+	width: 10%;
+}
+#boardList tbody .ipaddr {
+	width: 10%;
+}
+#boardList tbody .current {
+	background-color: #eaeaea;
+}
+.paging {
+	margin: 10px auto;
+}
+.paging a {
+	display: block;
+	margin: 5px;
+}
+.write textarea {
+	width: 100%;
+	height: 400px;
+	border: 0;
+	font-size:18pt;
+}
+.reply {
+	margin: 10px;
+	margin-top: 100px;
+	padding: 20px;
+	width: 1160px;
+	background-color: rgb(90, 98, 85);
+}
+.reply textarea {
+	background-color: white;
+	width: 1000px;
+}
+.reply .btn {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+}
+div.replyBox {
+	background-color: #dadada;
+	width: 1070px;
+	color: black;
+	border: 2px solid black;
+	align-items: flex-start;
+	text-align: left;
+	margin: 10px;
+	padding: 10px;
+}
+div.replyBox > div {
+	width: inherit;
+}
+span.username {
+	font-weight: bold;
+	color: blue;
+}
+
+
+
+
+
+
+
+
+
+

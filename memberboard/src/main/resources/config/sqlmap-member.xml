@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+			"-//mybatis.org//DTD Mapper 3.0//EN" 
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+			
+<mapper namespace="MemberDAO">
+	
+	<insert id="insertmember" parameterType="member">
+		insert into member (userid, userpw, username, email, gender)
+		values (#{userid}, #{userpw}, #{username}, #{email}, #{gender})
+	</insert>
+	
+	<select id="selectUser" parameterType="member" resultType="member">
+		select * from member where userid=#{userid} and userpw=#{userpw}
+	</select>
+	
+	<select id="selectPw" parameterType="string" resultType="string">
+		select userpw from member where userid=#{value}
+	</select>
+	
+	<update id="updateUser" parameterType="hashmap">
+		update member 
+		set
+			userpw=#{newpw1},
+			username=#{username}
+		where
+			userid=#{userid}
+	</update>
+	
+	<select id="selectUserid" parameterType="string" resultType="string">
+		select userid from member where userid=#{value}
+	</select>
+	
+</mapper>
